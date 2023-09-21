@@ -19,14 +19,17 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 db = SessionLocal()
 
 # Example usage:
-new_user = User(username="example_user", email="user@example.com", hashed_password="hashed_password_here")
+new_user = User(
+    username="example_user",
+    email="user@example.com",
+    hashed_password="hashed_password_here"
+)
 db.add(new_user)
 db.commit()
 ```
 
 For detailed information on the structure of the User model and how to use it for database operations, refer to the class definition and example usage above.
 """
-
 
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
