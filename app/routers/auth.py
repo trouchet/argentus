@@ -7,12 +7,12 @@ from app.database import get_db
 router = APIRouter()
 
 
-@router.post('/register', response_model=schemas.User)
+@router.post("/register", response_model=schemas.User)
 def register_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
     return services.crud.create_user(db, user)
 
 
-@router.post('/login')
+@router.post("/login")
 def login_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
     return authenticate_user(db, user)
 

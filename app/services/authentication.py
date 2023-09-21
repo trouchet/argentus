@@ -8,14 +8,13 @@ from decouple import config
 DEFAULT_ACCESS_TOKEN_EXPIRE_MINUTES = 15
 
 # Load configuration variables from the .env file
-SECRET_KEY = config('SECRET_KEY')
-ALGORITHM = config('ALGORITHM', default='HS256')
+SECRET_KEY = config("SECRET_KEY")
+ALGORITHM = config("ALGORITHM", default="HS256")
 ACCESS_TOKEN_EXPIRE_MINUTES = config(
-    'ACCESS_TOKEN_EXPIRE_MINUTES',
-    default=DEFAULT_ACCESS_TOKEN_EXPIRE_MINUTES,
-    cast=int)
+    "ACCESS_TOKEN_EXPIRE_MINUTES", default=DEFAULT_ACCESS_TOKEN_EXPIRE_MINUTES, cast=int
+)
 
-crypt_context = CryptContext(schemes=['bcrypt'], deprecated='auto')
+crypt_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 
 def create_access_token(data: dict, expires_delta: timedelta = None):
@@ -29,7 +28,7 @@ def create_access_token(data: dict, expires_delta: timedelta = None):
 
     expire = datetime.utcnow() + expire_increment
 
-    to_encode.update({'exp': expire})
+    to_encode.update({"exp": expire})
     encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
 
     return encoded_jwt
