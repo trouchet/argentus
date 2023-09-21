@@ -92,5 +92,5 @@ ps: ## Add a rule to list containers
 	docker ps -a
 
 deploy: ## Add a rule to deploy the server.
-	uvicorn app.main:app --reload
+	uvicorn main:app --reload
 
