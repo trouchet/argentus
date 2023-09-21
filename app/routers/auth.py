@@ -19,12 +19,12 @@ from app.database import get_db
 auth_router = APIRouter()
 
 
-@auth_router.post("/register", response_model=schemas.User)
+@auth_router.post('/register', response_model=schemas.User)
 def register_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
     return services.crud.create_user(db, user)
 
 
-@auth_router.post("/login")
+@auth_router.post('/login')
 def login_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
     return authenticate_user(db, user)
 
