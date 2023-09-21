@@ -2,6 +2,7 @@
 
 # Define common variables
 DJANGO_MANAGE = python manage.py
+DOCKER = docker
 PYTHON := python
 PIP := pip
 
