@@ -94,4 +94,3 @@ ps: ## Add a rule to list containers
 
 deploy: ## Add a rule to deploy the server.
 	uvicorn main:app --reload
-

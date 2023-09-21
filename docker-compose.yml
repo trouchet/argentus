@@ -14,5 +14,4 @@ services:
     container_name: argentus-box
     depends_on:
       - db
-    command: ["./deploy-utils.sh"]
-
+    command: ["./deploy.sh"]
