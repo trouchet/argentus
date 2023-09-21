@@ -1,3 +1,25 @@
+"""
+Authentication and Token Utilities
+
+This module defines various utilities for authentication and token handling, including password hashing, access token generation, and user verification.
+
+Usage:
+1. Import this module to access the authentication and token-related functions.
+2. These utilities are used for tasks like password hashing, generating access tokens, verifying passwords, and extracting user information from tokens.
+
+Example:
+```python
+from app.auth import create_access_token, verify_password, get_password_hash
+
+# Create an access token with user data
+user_data = {"username": "example_user", "email": "user@example.com"}
+access_token = create_access_token(user_data)
+
+# Verify a password against a hashed password
+hashed_password = get_password_hash("password123")
+is_valid = verify_password("password123", hashed_password)
+"""
+
 from passlib.context import CryptContext
 from jose import jwt
 from datetime import datetime, timedelta
